@@ -6,4 +6,9 @@ services:
         ports:
             - "9090:9090"
         volumes:
-            - ./prometheus.yml:/etc/prometheus/prometheus.yml
+            - type: bind
+              source: ./prometheus.yml
+              target: /etc/prometheus/prometheus.yml
+
+volumes:
+    prometheus_volume:
